@@ -2,7 +2,7 @@
 font-family: 'Alfa Slab One', cursive;
 */
 footer {
-    background-color: rgb(78, 78, 78);
+    background-color: red;
 }
 
 h1,
@@ -17,7 +17,7 @@ h2 {
     background-size: cover;
     height: 0.5vh;
     min-height: 600px;
-    color: gray;
+    color: red;
 
 }
 
