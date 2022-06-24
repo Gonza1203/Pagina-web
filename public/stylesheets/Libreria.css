@@ -5,8 +5,7 @@ footer {
     background-color: red;
 }
 
-h1,
-h2 {
+h1, h2 {
     font-family: 'Alfa Slab One', cursive;
 }
 
@@ -86,4 +85,8 @@ h2 {
 
 .visitanos {
     background: gray;
+}
+
+body {
+    background-color: rgb(127, 127, 128);
 }
