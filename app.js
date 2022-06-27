@@ -6,16 +6,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require("dotenv").config();
-
 var session = require("express-session");
-
+var fileUpload = require("express-fileupload");
 var pool = require("./models/bd");
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require("./routes/admin/login");
 var adminRouter = require("./routes/admin/novedades");
-
 
 
 var app = express();
@@ -31,19 +30,35 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: "Milanesas",
+  secret: "2g13123g12312",
   resave: false,
   saveUninitialized: true
 }));
 
- 
+secured = async (req, res, next) => {
+  try {
+    console.log(req.session.id_usuario);
+    if (req.session.id_usuario) {
+      next();
+    } else {
+      res.redirect("/admin/login")
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: "/tmp/"
+}));
 
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/admin/login", loginRouter);
-app.use("/admin/novedades", adminRouter);
+app.use("/admin/novedades",secured, adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
