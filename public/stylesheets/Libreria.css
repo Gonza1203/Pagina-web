@@ -2,7 +2,7 @@
 font-family: 'Alfa Slab One', cursive;
 */
 footer {
-    background-color: red;
+    background-color:red;
 }
 
 h1, h2 {
@@ -12,11 +12,11 @@ h1, h2 {
 /*Imagen grande*/
 
 .hero {
-    background: url(../images/Domino.jpg) no-repeat;
+    background: url(../images/domino2.jpg) no-repeat;
     background-size: cover;
     height: 0.5vh;
     min-height: 600px;
-    color: red;
+    color: rgb(54, 48, 48);
 
 }
 
